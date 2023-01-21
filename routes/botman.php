@@ -4,12 +4,40 @@ use App\Response;
 use App\Http\Controllers\BotManController;
 use BotMan\BotMan\Messages\Incoming\Answer;
 use BotMan\BotMan\Messages\Attachments\Image;
+use BotMan\Middleware\DialogFlow\V2\DialogFlow;
 use BotMan\BotMan\Messages\Outgoing\OutgoingMessage;
 
 $botman = resolve('botman');
 
 // response
 
+$dialogflow = DialogFlow::create('en');
+
+$botman->middleware->received($dialogflow);
+
+$botman->hears('input.enrollment', function ($bot) {
+    $extras = $bot->getMessage()->getExtras();
+    $bot->reply($extras['apiReply']);
+})->middleware($dialogflow);
+
+
+$botman->hears('input.lms', function ($bot) {
+    $extras = $bot->getMessage()->getExtras();
+    $bot->reply($extras['apiReply']);
+})->middleware($dialogflow);
+
+$botman->hears('input.unknown', function ($bot) {
+    $extras = $bot->getMessage()->getExtras();
+    $bot->reply($extras['apiReply']);
+})->middleware($dialogflow);
+
+$botman->hears('smalltalk.(.*)', function ($bot) {
+    $extras = $bot->getMessage()->getExtras();
+    $bot->reply($extras['apiReply']);
+})->middleware($dialogflow);
+
+
+// demo
 
 $botman->hears('hey, {pattern}', function ($bot, $pattern) {
     $message = 'huh?';
