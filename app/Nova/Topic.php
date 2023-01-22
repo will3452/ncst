@@ -20,10 +20,10 @@ class Topic extends Resource
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public static function indexQuery(NovaRequest $request, $query)
-    {
-        return $query->whereNull('topic_id');
-    }
+    // public static function indexQuery(NovaRequest $request, $query)
+    // {
+    //     return $query->whereNull('topic_id');
+    // }
     /**
      * The model the resource corresponds to.
      *
@@ -58,16 +58,19 @@ class Topic extends Resource
     {
         return [
             Select::make('Main Topic', 'topic_id')
+                ->displayUsingLabels()
                 ->hideFromIndex()
                 ->options(\App\Topic::get()->pluck('name', 'id')),
+
+            Text::make('Sub/Main', function () {
+                return $this->topic_id == null ? 'MAIN': 'SUB';
+            })->exceptOnForms(),
 
             Text::make('Name')
                 ->rules(['required']),
 
             Textarea::make('Description')
                 ->rules(['required']),
-
-            HasMany::make('Sub-Topics', 'subTopics', Topic::class),
 
         ];
     }

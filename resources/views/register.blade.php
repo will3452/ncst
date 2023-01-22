@@ -37,7 +37,7 @@
         <article class="grid">
           <div>
             <hgroup>
-              <h1>REGISTER</h1>
+              <h1>REGISTER HERE</h1>
             </hgroup>
             <form method="POST" action="/register">
                 @csrf

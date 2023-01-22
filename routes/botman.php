@@ -79,4 +79,4 @@ $botman->fallback(function ($bot) {
 
     $bot->reply($fallbacks[rand(0, count($fallbacks) - 1)]);
 });
-$botman->hears('Start conversation', BotManController::class.'@startConversation');
+// $botman->hears('Start conversation', BotManController::class.'@startConversation');

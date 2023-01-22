@@ -13,6 +13,6 @@ class Topic extends Model
     ];
 
     public function subTopics () {
-        return $this->hasMany(Topic::class, 'topic_id');
+        return $this->hasMany(Topic::class);
     }
 }

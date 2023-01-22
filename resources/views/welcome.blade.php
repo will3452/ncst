@@ -23,7 +23,7 @@
     <div class="container">
         <nav>
             <ul>
-                <li><strong>NSCT-CHATBOT</strong></li>
+                <li><strong>NCST-CHATBOT</strong></li>
             </ul>
             <ul>
                 <li><a href="#">ABOUT</a></li>
@@ -39,7 +39,7 @@
         <article class="grid">
           <div>
             <hgroup>
-              <h1>NSCT CHATBOT</h1>
+              <h1>NCST CHATBOT</h1>
               <h4 id="typed"></h4>
             </hgroup>
             @if ($errors->any())
@@ -59,7 +59,7 @@
       </main><!-- ./ Main -->
 <script>
     var botmanWidget = {
-        title: 'NSCT',
+        title: 'NCST',
         introMessage: 'Hi there, you may have questions about NCST.',
         aboutText: 'NCST CHATBOT',
     }
