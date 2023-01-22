@@ -41,10 +41,6 @@
                         {{ Nova::name() }}
                     </a>
 
-                    @if (count(Nova::globallySearchableResources(request())) > 0)
-                        <global-search></global-search>
-                    @endif
-
                     <dropdown class="ml-auto h-9 flex items-center" style="right: 20px">
                         @include('nova::partials.user')
                     </dropdown>

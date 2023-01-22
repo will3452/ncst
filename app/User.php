@@ -10,14 +10,21 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    public function logs () {
+        return $this->hasMany(Log::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'type',
     ];
+
+    const TYPE_STUDENT = 'STUDENT';
+    const TYPE_ADMINISTRATOR = 'ADMINISTRATOR';
 
     /**
      * The attributes that should be hidden for arrays.

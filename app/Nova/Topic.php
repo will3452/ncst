@@ -2,29 +2,41 @@
 
 namespace App\Nova;
 
-use App\User as AppUser;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Gravatar;
-use Laravel\Nova\Fields\Password;
+use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\Select;
+use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
-class User extends Resource
+class Topic extends Resource
 {
+    /**
+     * Build an "index" query for the given resource.
+     *
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public static function indexQuery(NovaRequest $request, $query)
+    {
+        return $query->whereNull('topic_id');
+    }
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = 'App\\User';
+    public static $model = 'App\Topic';
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'name';
+    public static $title = 'id';
 
     /**
      * The columns that should be searched.
@@ -32,7 +44,8 @@ class User extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'name', 'email',
+        'id',
+        'name'
     ];
 
     /**
@@ -44,27 +57,18 @@ class User extends Resource
     public function fields(Request $request)
     {
         return [
+            Select::make('Main Topic', 'topic_id')
+                ->hideFromIndex()
+                ->options(\App\Topic::get()->pluck('name', 'id')),
+
             Text::make('Name')
-                ->sortable()
-                ->rules('required', 'max:255'),
+                ->rules(['required']),
 
-            Select::make('Type')
-                ->sortable()
-                ->options([
-                    AppUser::TYPE_ADMINISTRATOR => AppUser::TYPE_ADMINISTRATOR,
-                    AppUser::TYPE_STUDENT => AppUser::TYPE_STUDENT,
-                ]),
+            Textarea::make('Description')
+                ->rules(['required']),
 
-            Text::make('Email')
-                ->sortable()
-                ->rules('required', 'email', 'max:254')
-                ->creationRules('unique:users,email')
-                ->updateRules('unique:users,email,{{resourceId}}'),
+            HasMany::make('Sub-Topics', 'subTopics', Topic::class),
 
-            Password::make('Password')
-                ->onlyOnForms()
-                ->creationRules('required', 'string', 'min:6')
-                ->updateRules('nullable', 'string', 'min:6'),
         ];
     }
 

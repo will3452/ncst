@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "91aff1a6014193c7e8cb264e0ec3810e",
+    "content-hash": "257d9819029510ae8a3c625229fb0925",
     "packages": [
         {
             "name": "botman/botman",
@@ -2569,6 +2569,62 @@
             "time": "2019-08-07T15:10:45+00:00"
         },
         {
+            "name": "laravelwebdev/responsive",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravelwebdev/responsive.git",
+                "reference": "8e14a0dff52b88bb911b2b220c1a10cd52f25a0a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravelwebdev/responsive/zipball/8e14a0dff52b88bb911b2b220c1a10cd52f25a0a",
+                "reference": "8e14a0dff52b88bb911b2b220c1a10cd52f25a0a",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Laravelwebdev\\Responsive\\ThemeServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravelwebdev\\Responsive\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Muhlis Abdi",
+                    "email": "muhlisabdi@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A Responsive Laravel Nova  Theme based on 'A Responsive Laravel Nova theme'.",
+            "homepage": "https://github.com/laravelwebdev/responsive",
+            "keywords": [
+                "Laravel Nova Theme",
+                "Responsive Laravel Nova Theme",
+                "dark theme",
+                "laravel",
+                "nova"
+            ],
+            "support": {
+                "issues": "https://github.com/laravelwebdev/responsive/issues",
+                "source": "https://github.com/laravelwebdev/responsive/tree/v1.0.1"
+            },
+            "time": "2021-05-27T12:13:19+00:00"
+        },
+        {
             "name": "lcobucci/jwt",
             "version": "3.4.6",
             "source": {
@@ -4917,6 +4973,96 @@
                 }
             ],
             "time": "2021-07-11T12:37:55+00:00"
+        },
+        {
+            "name": "realrashid/sweet-alert",
+            "version": "v5.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/realrashid/sweet-alert.git",
+                "reference": "fb837beaa52568fb3106d311ff3c7a7b8e543608"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/realrashid/sweet-alert/zipball/fb837beaa52568fb3106d311ff3c7a7b8e543608",
+                "reference": "fb837beaa52568fb3106d311ff3c7a7b8e543608",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^5.6|^6.0|^7.0|^8.0|^9.0|^9.11|9.14.*",
+                "php": "^7.2|^8.0"
+            },
+            "require-dev": {
+                "symfony/thanks": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "RealRashid\\SweetAlert\\SweetAlertServiceProvider"
+                    ],
+                    "aliases": {
+                        "Alert": "RealRashid\\SweetAlert\\Facades\\Alert"
+                    }
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/functions.php"
+                ],
+                "psr-4": {
+                    "RealRashid\\SweetAlert\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rashid Ali",
+                    "email": "realrashid05@gmail.com",
+                    "homepage": "https://realrashid.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A BEAUTIFUL, RESPONSIVE, CUSTOMIZABLE, ACCESSIBLE (WAI-ARIA) REPLACEMENT FOR JAVASCRIPT'S POPUP BOXES FOR LARAVEL BY RASHID ALI",
+            "homepage": "https://github.com/realrashid/sweet-alert",
+            "keywords": [
+                "alert",
+                "laravel",
+                "laravel-package",
+                "notifier",
+                "noty",
+                "sweet-alert",
+                "sweet-alert2",
+                "toast"
+            ],
+            "support": {
+                "docs": "https://realrashid.github.io/sweet-alert/",
+                "email": "realrashid05@gmail.com",
+                "issues": "https://github.com/realrashid/sweet-alert/issues",
+                "source": "https://github.com/realrashid/sweet-alert"
+            },
+            "funding": [
+                {
+                    "url": "https://ko-fi.com/realrashid",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.buymeacoffee.com/realrashid",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://issuehunt.io/r/realrashid",
+                    "type": "issuehunt"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/realrashid/sweet-alert",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2022-05-28T13:28:03+00:00"
         },
         {
             "name": "spatie/macroable",

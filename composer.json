@@ -26,7 +26,9 @@
         "genkovich/dialog-flow-bot-man-middleware": "^0.0.6",
         "laravel/framework": "5.7.*",
         "laravel/nova": "*",
-        "laravel/tinker": "^1.0"
+        "laravel/tinker": "^1.0",
+        "laravelwebdev/responsive": "^1.0",
+        "realrashid/sweet-alert": "^5.1"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

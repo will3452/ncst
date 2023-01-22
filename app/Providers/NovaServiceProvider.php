@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\ChatConversation;
+use App\Nova\Metrics\Conversations;
+use App\Nova\Metrics\Topics;
 use Laravel\Nova\Nova;
 use App\Nova\Metrics\Users;
 use Laravel\Nova\Cards\Help;
@@ -58,6 +61,8 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     {
         return [
             Users::make(),
+            Conversations::make(),
+            Topics::make(),
         ];
     }
 
